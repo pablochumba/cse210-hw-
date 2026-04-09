@@ -1,0 +1,3 @@
+0
+EternalGoal:Read Scriptures,Daily study,100
+ChecklistGoal:Temple Visits,Attend the temple,50,500,3,0
