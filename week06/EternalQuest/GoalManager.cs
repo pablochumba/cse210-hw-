@@ -232,7 +232,7 @@ public class GoalManager
     {
         string[] parts = Goal.SplitEscapedParts(data);
 
-        if (parts.Length < 4)
+        if (parts.Length == 0)
         {
             return null;
         }
@@ -242,10 +242,25 @@ public class GoalManager
         switch (goalType)
         {
             case "SimpleGoal":
+                if (parts.Length != 5)
+                {
+                    return null;
+                }
+
                 return new SimpleGoal(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
             case "EternalGoal":
+                if (parts.Length != 4)
+                {
+                    return null;
+                }
+
                 return new EternalGoal(parts[1], parts[2], int.Parse(parts[3]));
             case "ChecklistGoal":
+                if (parts.Length != 7)
+                {
+                    return null;
+                }
+
                 return new ChecklistGoal(parts[1], parts[2], int.Parse(parts[3]), int.Parse(parts[5]), int.Parse(parts[4]), int.Parse(parts[6]));
             default:
                 return null;
